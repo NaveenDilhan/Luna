@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Discover Music'),
+        title: const Text('Discover Music'),
         backgroundColor: Colors.black,
       ),
       body: Padding(
@@ -13,17 +15,18 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               "Trending Tracks",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
                 itemCount: 10,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    leading: Icon(Icons.music_note, color: Colors.deepPurple),
+                    leading:
+                        const Icon(Icons.music_note, color: Colors.deepPurple),
                     title: Text('Track ${index + 1}'),
                     subtitle: Text('Artist ${index + 1}'),
                     onTap: () {
@@ -33,18 +36,19 @@ class HomeScreen extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               "Recently Added",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Expanded(
               child: ListView.builder(
                 itemCount: 5,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    leading: Icon(Icons.library_music, color: Colors.deepPurple),
+                    leading: const Icon(Icons.library_music,
+                        color: Colors.deepPurple),
                     title: Text('New Track ${index + 1}'),
                     subtitle: Text('New Artist ${index + 1}'),
                     onTap: () {

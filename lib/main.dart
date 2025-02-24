@@ -3,13 +3,15 @@ import 'screens/home_screen.dart';
 import 'screens/explore_screen.dart';
 import 'screens/sequencer_screen.dart';
 import 'screens/library_screen.dart';
-import 'screens/profile_screen.dart';
+import 'screens/Profile/profile_screen.dart';
 
 void main() {
   runApp(MusicSequencerApp());
 }
 
 class MusicSequencerApp extends StatelessWidget {
+  const MusicSequencerApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,7 +20,7 @@ class MusicSequencerApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         primaryColor: Colors.deepPurple,
         scaffoldBackgroundColor: Colors.black,
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           selectedItemColor: Colors.deepPurpleAccent,
           unselectedItemColor: Colors.white70,
         ),
@@ -29,6 +31,8 @@ class MusicSequencerApp extends StatelessWidget {
 }
 
 class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
+
   @override
   _MainScreenState createState() => _MainScreenState();
 }

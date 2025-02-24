@@ -30,4 +30,5 @@ flutter:
     - assets/piano/A4.wav
     - assets/piano/B4.wav
     - assets/piano/C5.wav
+    - assets/profile.png
   uses-material-design: true
