@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'sequencer_grid_screen.dart'; 
 
 class SequencerScreen extends StatelessWidget {
   @override
@@ -21,7 +22,10 @@ class SequencerScreen extends StatelessWidget {
             SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
-                // Navigate to the sequencer grid UI
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SequencerGridScreen()),
+                );
               },
               child: Text("Open Sequencer"),
             ),
