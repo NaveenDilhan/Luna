@@ -21,17 +21,36 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Expanded(
-              child: ListView.builder(
+              child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  childAspectRatio: 1,
+                ),
                 itemCount: 10,
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    leading:
-                        const Icon(Icons.music_note, color: Colors.deepPurple),
-                    title: Text('Track ${index + 1}'),
-                    subtitle: Text('Artist ${index + 1}'),
+                  return GestureDetector(
                     onTap: () {
                       // Navigate to music player
                     },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.deepPurple.shade100,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.music_note,
+                              size: 40, color: Colors.deepPurple),
+                          const SizedBox(height: 8),
+                          Text('Track ${index + 1}',
+                              style: const TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold)),
+                        ],
+                      ),
+                    ),
                   );
                 },
               ),
@@ -51,9 +70,7 @@ class HomeScreen extends StatelessWidget {
                         color: Colors.deepPurple),
                     title: Text('New Track ${index + 1}'),
                     subtitle: Text('New Artist ${index + 1}'),
-                    onTap: () {
-                      // Navigate to music player
-                    },
+                    onTap: () {},
                   );
                 },
               ),

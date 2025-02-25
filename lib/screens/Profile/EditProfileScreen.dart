@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -14,8 +15,25 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   void initState() {
     super.initState();
-    _nameController.text = "Shenon"; // Prefill with existing name
-    _bioController.text = "Music lover | Producer"; // Prefill with existing bio
+    _loadProfile(); // Load saved data
+  }
+
+  Future<void> _loadProfile() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _nameController.text = prefs.getString("name") ?? "Shenon";
+      _bioController.text = prefs.getString("bio") ?? "Music lover | Producer";
+    });
+  }
+
+  Future<void> _saveProfile() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString("name", _nameController.text);
+    await prefs.setString("bio", _bioController.text);
+    Navigator.pop(context, {
+      "name": _nameController.text,
+      "bio": _bioController.text,
+    });
   }
 
   @override
@@ -40,13 +58,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {
-                // Save the changes (you might want to update this in your backend)
-                Navigator.pop(context, {
-                  "name": _nameController.text,
-                  "bio": _bioController.text,
-                });
-              },
+              onPressed: _saveProfile,
               style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
               child: const Text("Save Changes",
                   style: TextStyle(color: Colors.white)),
