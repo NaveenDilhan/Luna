@@ -6,7 +6,7 @@ import 'screens/library_screen.dart';
 import 'screens/Profile/profile_screen.dart';
 
 void main() {
-  runApp(MusicSequencerApp());
+  runApp(const MusicSequencerApp());
 }
 
 class MusicSequencerApp extends StatelessWidget {
@@ -25,7 +25,7 @@ class MusicSequencerApp extends StatelessWidget {
           unselectedItemColor: Colors.white70,
         ),
       ),
-      home: MainScreen(),
+      home: const MainScreen(),
     );
   }
 }
@@ -41,11 +41,11 @@ class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = [
-    HomeScreen(),
-    ExploreScreen(),
-    SequencerScreen(),
-    LibraryScreen(),
-    ProfileScreen(),
+    const HomeScreen(),
+    const ExploreScreen(),
+    const SequencerScreen(),
+    const LibraryScreen(),
+    const ProfileScreen(),
   ];
 
   @override
