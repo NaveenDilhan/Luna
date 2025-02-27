@@ -9,11 +9,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  audioplayers: ^6.1.1  # For playing sound samples
-  flutter_midi_command: ^0.5.3  # For MIDI commands (if needed)
+  audioplayers: ^6.2.0  
+  flutter_midi_command: ^0.5.3  
   provider: ^6.0.3 # Example dependency for state management
   shared_preferences: ^2.0.15
   just_audio: ^0.9.46
+  
 
 dev_dependencies:
   flutter_test:
@@ -30,4 +31,14 @@ flutter:
     - assets/piano/A4.wav
     - assets/piano/B4.wav
     - assets/piano/C5.wav
+    - assets/profile.png
+    - assets/track1.jpg
+    - assets/track2.jpg
+    - assets/track3.jpg
+    - assets/track4.jpg
+    - assets/track5.jpg
+    - assets/track6.jpg
+    - assets/track7.jpg
+    - assets/track8.jpg
+    - assets/track9.jpg
   uses-material-design: true
