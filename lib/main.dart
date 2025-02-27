@@ -3,13 +3,15 @@ import 'screens/home_screen.dart';
 import 'screens/explore_screen.dart';
 import 'screens/sequencer_screen.dart';
 import 'screens/library_screen.dart';
-import 'screens/profile_screen.dart';
+import 'screens/Profile/profile_screen.dart';
 
 void main() {
-  runApp(MusicSequencerApp());
+  runApp(const MusicSequencerApp());
 }
 
 class MusicSequencerApp extends StatelessWidget {
+  const MusicSequencerApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,17 +20,19 @@ class MusicSequencerApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         primaryColor: Colors.deepPurple,
         scaffoldBackgroundColor: Colors.black,
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           selectedItemColor: Colors.deepPurpleAccent,
           unselectedItemColor: Colors.white70,
         ),
       ),
-      home: MainScreen(),
+      home: const MainScreen(),
     );
   }
 }
 
 class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
+
   @override
   _MainScreenState createState() => _MainScreenState();
 }
@@ -37,11 +41,11 @@ class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = [
-    HomeScreen(),
-    ExploreScreen(),
-    SequencerScreen(),
-    LibraryScreen(),
-    ProfileScreen(),
+    const HomeScreen(),
+    const ExploreScreen(),
+    const SequencerScreen(),
+    const LibraryScreen(),
+    const ProfileScreen(),
   ];
 
   @override
