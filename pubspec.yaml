@@ -22,12 +22,20 @@ dev_dependencies:
 
 flutter:
   assets:
-    - assets/piano/C4.wav
-    - assets/piano/D4.wav
-    - assets/piano/E4.wav
-    - assets/piano/F4.wav
-    - assets/piano/G4.wav
-    - assets/piano/A4.wav
-    - assets/piano/B4.wav
-    - assets/piano/C5.wav
+    - assets/piano/C3.mp3
+    - assets/piano/C#3.mp3
+    - assets/piano/D3.mp3
+    - assets/piano/D#3.mp3
+    - assets/piano/E3.mp3
+    - assets/piano/F3.mp3
+    - assets/piano/F#3.mp3
+    - assets/piano/G3.mp3
+    - assets/piano/G#3.mp3
+    - assets/piano/A3.mp3
+    - assets/piano/A#3.mp3
+    - assets/piano/B3.mp3
+    - assets/piano/C4.mp3
+    - assets/piano/C#4.mp3
+    - assets/piano/D4.mp3
+    - assets/piano/D#4.mp3
   uses-material-design: true

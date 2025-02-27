@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../widgets/sequencer_grid.dart';
-import '../widgets/instrument_selector.dart';
+import 'package:luna/widgets/instrument_selector.dart';
+import 'package:luna/widgets/sequencer_grid.dart';
 import '../models/sequencer_model.dart';
 
 class SequencerGridScreen extends StatefulWidget {
@@ -12,6 +12,7 @@ class SequencerGridScreen extends StatefulWidget {
 class _SequencerGridScreenState extends State<SequencerGridScreen> with SingleTickerProviderStateMixin {
   late SequencerModel _sequencer;
   double _tempo = 120.0;
+  String? selectedOption;
 
   @override
   void initState() {
@@ -53,7 +54,7 @@ class _SequencerGridScreenState extends State<SequencerGridScreen> with SingleTi
                   min: 60.0,
                   max: 180.0,
                   divisions: 12,
-                  label: '$_tempo BPM',
+                  label: '${_tempo.round()} BPM',
                   onChanged: (newTempo) {
                     setState(() {
                       _tempo = newTempo;
@@ -63,7 +64,8 @@ class _SequencerGridScreenState extends State<SequencerGridScreen> with SingleTi
                 );
               },
             ),
-            Expanded(child: SequencerGrid()), // 
+            _buildDropdownMenu(),
+            Expanded(child: SequencerGrid()),
             Consumer<SequencerModel>(
               builder: (context, sequencer, child) {
                 return Row(
@@ -92,11 +94,40 @@ class _SequencerGridScreenState extends State<SequencerGridScreen> with SingleTi
     );
   }
 
-  Widget _buildControlButton({required IconData icon, required Color color, required VoidCallback onPressed}) {
-    return ElevatedButton(
+  Widget _buildControlButton({required IconData icon, required Color color, required void Function() onPressed}) {
+    return IconButton(
+      icon: Icon(icon),
+      color: color,
       onPressed: onPressed,
-      style: ElevatedButton.styleFrom(shape: const CircleBorder(), padding: const EdgeInsets.all(15), backgroundColor: color),
-      child: Icon(icon, size: 30, color: Colors.white),
+    );
+  }
+
+  Widget _buildDropdownMenu() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: DropdownButton<String>(
+        value: selectedOption,
+        onChanged: (String? newValue) {
+          setState(() {
+            selectedOption = newValue;
+            if (newValue == 'Create Blank Song') {
+              _sequencer.clearGrid();
+            } else if (newValue == 'Export MP3') {
+              // Implement MP3 export logic
+            } else if (newValue == 'Upload Song') {
+              // Implement song upload logic
+            }
+          });
+        },
+        hint: const Text("Select an option"),
+        items: <String>['Create Blank Song', 'Export MP3', 'Upload Song']
+            .map<DropdownMenuItem<String>>((String value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(value),
+          );
+        }).toList(),
+      ),
     );
   }
 }
