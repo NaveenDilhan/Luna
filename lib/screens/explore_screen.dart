@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ExploreScreen extends StatelessWidget {
+  const ExploreScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Explore Music'),
+        title: const Text('Explore Music'),
         backgroundColor: Colors.black,
       ),
       body: Padding(
@@ -15,7 +17,7 @@ class ExploreScreen extends StatelessWidget {
             TextField(
               decoration: InputDecoration(
                 hintText: "Search tracks...",
-                prefixIcon: Icon(Icons.search),
+                prefixIcon: const Icon(Icons.search),
                 filled: true,
                 fillColor: Colors.grey[900],
                 border: OutlineInputBorder(
@@ -24,13 +26,14 @@ class ExploreScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
                 itemCount: 10,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    leading: Icon(Icons.audiotrack, color: Colors.deepPurple),
+                    leading:
+                        const Icon(Icons.audiotrack, color: Colors.deepPurple),
                     title: Text('Explore Track ${index + 1}'),
                     subtitle: Text('Artist ${index + 1}'),
                     onTap: () {
